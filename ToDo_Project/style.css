@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(150deg, #66BB6A, hsl(124, 55%, 24%));
+    padding: 40px 20px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    margin: 50px auto 20px;
+    padding: 40px 35px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    color: #00650d;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    display: flex;
+    padding-left: 10px;
+    /* align-items: center; */
+    margin-bottom: 25px;
+}
+
+.todo-app h2 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+/* INPUT AREA */
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 190px auto;
+    gap: 10px;
+    align-items: center;
+    background: #edeef0;
+    border-radius: 30px;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+#input-box {
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 14px 15px;
+    font-size: 15px;
+}
+
+#deadline {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 14px 5px;
+    font-size: 13px;
+    color: #555;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 15px 30px;
+    background: hsl(124, 53%, 30%);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+button:hover {
+    background: hsl(124, 53%, 25%);
+}
+
+
+/* TASK LIST */
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 14px 50px 14px 8px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    min-height: 55px;
+
+    word-break: break-word;
+}
+
+/* CHECKBOX */
+
+ul li::before {
+    flex-shrink: 0;
+
+    content: '';
+
+    height: 28px;
+    width: 28px;
+
+    border-radius: 50%;
+
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/* COMPLETED TASK */
+
+ul li.checked {
+    color: #777;
+}
+
+/* CHECKED ICON */
+
+ul li.checked::before {
+    background-image: url(images/check.png);
+}
+
+
+/* ANIMATED LINE THROUGH TEXT */
+
+ul li.checked .task-text {
+    animation: strikeThrough 0.5s ease forwards;
+}
+
+@keyframes strikeThrough {
+
+    0% {
+        text-decoration-color: transparent;
+    }
+
+    100% {
+        text-decoration: line-through;
+        text-decoration-color: #555;
+    }
+}
+
+
+/* DEADLINE */
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-text {
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.deadline {
+    display: block;
+    margin-top: 6px;
+
+    font-size: 12px;
+    color: #777;
+}
+
+.deadline.expired {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+
+/* DELETE BUTTON */
+
+ul li span {
+    position: absolute;
+
+    right: 0;
+    top: 10px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 22px;
+    color: #555;
+
+    line-height: 40px;
+    text-align: center;
+
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background-color: #edeef0;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .todo-app {
+        margin: 20px auto;
+        padding: 30px 20px 50px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+    #input-box {
+        width: 100%;
+    }
+
+    #deadline {
+        width: 100%;
+        padding: 12px;
+        background: white;
+        border-radius: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    ul li {
+        font-size: 16px;
+        padding-right: 45px;
+    }
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 400px) {
+
+    .todo-app {
+        padding: 25px 15px 40px;
+    }
+
+    .todo-app h2 {
+        font-size: 22px;
+    }
+
+    ul li {
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    ul li::before {
+        width: 24px;
+        height: 24px;
+    }
+}
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #777;
+    font-size: 14px;
+}
+
+.footer span {
+    color: #e63946;
+    font-size: 18px;
+}
